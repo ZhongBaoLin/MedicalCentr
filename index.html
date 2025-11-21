@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Медичний центр "Здоров'я"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Шапка сайту -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">МедЦентр <span style="color: var(--secondary);">"Здоров'я"</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Головна</a></li>
+                    <li><a href="#services">Послуги</a></li>
+                    <li><a href="#doctors">Лікарі</a></li>
+                    <li><a href="#pricing">Ціни</a></li>
+                    <li><a href="#appointment">Запис</a></li>
+                    <li><a href="#contact">Контакти</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Головний банер -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Медичний центр "Здоров'я"</h1>
+                <p>Надаємо якісні медичні послуги з дбайливим ставленням до кожного пацієнта. Наша команда професійних лікарів готова допомогти вам зберегти та покращити ваше здоров'я.</p>
+                <a href="#services" class="btn">Наші послуги</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Послуги -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наші послуги</h2>
+                <p>Ми пропонуємо широкий спектр медичних послуг для всієї родини з використанням сучасного обладнання та інноваційних методів лікування.</p>
+            </div>
+            
+            <!-- Фільтри та пошук -->
+            <div class="services-controls" style="margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+                <div class="form-group" style="flex: 1; min-width: 200px;">
+                    <select id="categoryFilter" class="form-control">
+                        <option value="all">Всі категорії</option>
+                        <option value="therapy">Терапія</option>
+                        <option value="cardiology">Кардіологія</option>
+                        <option value="neurology">Неврологія</option>
+                    </select>
+                </div>
+                <div class="form-group" style="flex: 1; min-width: 200px;">
+                    <input type="text" id="searchService" class="form-control" placeholder="Пошук послуги...">
+                </div>
+                <div class="form-group" style="flex: 1; min-width: 200px;">
+                    <select id="priceFilter" class="form-control">
+                        <option value="all">Всі ціни</option>
+                        <option value="expensive">Найдорожчі послуги</option>
+                        <option value="cheap">Найдешевші послуги</option>
+                    </select>
+                </div>
+                <button id="resetFilters" class="btn" style="min-width: 150px;">Скинути фільтри</button>
+            </div>
+            
+            <!-- Результати пошуку -->
+            <div id="searchResults" style="margin-bottom: 20px; display: none;">
+                <p id="resultsCount"></p>
+            </div>
+            
+            <!-- Список послуг -->
+            <div id="servicesContainer" class="services-grid">
+                <!-- Тут будуть відображатися послуги -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Спеціалісти -->
+    <section id="doctors" style="background-color: #f0f7ff;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наші лікарі</h2>
+                <p>Наша команда складається з висококваліфікованих спеціалістів з багаторічним досвідом роботи.</p>
+            </div>
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <div class="doctor-img">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Доктор Іваненко">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Олег Іваненко</h3>
+                        <p>Терапевт, лікар вищої категорії</p>
+                        <p>Стаж: 15 років</p>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-img">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Доктор Петренко">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Андрій Петренко</h3>
+                        <p>Кардіолог, кандидат медичних наук</p>
+                        <p>Стаж: 12 років</p>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-img">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Доктор Коваленко">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Марія Коваленко</h3>
+                        <p>Невролог, лікар вищої категорії</p>
+                        <p>Стаж: 18 років</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Прайс -->
+    <section id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ціни на послуги</h2>
+                <p>Прозора система ціноутворення без прихованих платежів. У нас діють спеціальні пропозиції для постійних клієнтів.</p>
+            </div>
+            <div class="pricing-table">
+                <div class="pricing-header">
+                    <h3>Основні послуги</h3>
+                    <p>Актуальні ціни на 2023 рік</p>
+                </div>
+                <div class="pricing-body">
+                    <div class="price-item">
+                        <div class="price-name">Консультація терапевта</div>
+                        <div class="price-value">450 грн</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="price-name">Консультація кардіолога</div>
+                        <div class="price-value">550 грн</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="price-name">Консультація невролога</div>
+                        <div class="price-value">500 грн</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="price-name">ЕКГ</div>
+                        <div class="price-value">250 грн</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="price-name">УЗД органів черевної порожнини</div>
+                        <div class="price-value">600 грн</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="price-name">Загальний аналіз крові</div>
+                        <div class="price-value">200 грн</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма запису -->
+    <section class="appointment" id="appointment">
+        <div class="container">
+            <div class="section-title">
+                <h2>Запис на прийом</h2>
+                <p>Заповніть форму нижче, і наш адміністратор зв'яжеться з вами для підтвердження запису.</p>
+            </div>
+            <form class="appointment-form" id="appointmentForm">
+                <div class="form-group">
+                    <label for="name">ПІБ</label>
+                    <input type="text" id="name" class="form-control" placeholder="Введіть ваше повне ім'я" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Номер телефону</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="Введіть ваш номер телефону" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Введіть вашу електронну пошту">
+                </div>
+                <div class="form-group">
+                    <label for="doctor">Оберіть лікаря</label>
+                    <select id="doctor" class="form-control" required>
+                        <option value="">-- Оберіть лікаря --</option>
+                        <option value="терапевт">Терапевт (Олег Іваненко)</option>
+                        <option value="кардіолог">Кардіолог (Андрій Петренко)</option>
+                        <option value="невролог">Невролог (Марія Коваленко)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Бажана дата</label>
+                    <input type="date" id="date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Бажаний час</label>
+                    <input type="time" id="time" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Додаткові побажання</label>
+                    <textarea id="message" class="form-control" rows="4" placeholder="Опишіть вашу проблему або додаткові побажання"></textarea>
+                </div>
+                <button type="submit" class="btn btn-secondary" style="width: 100%;">Записатися на прийом</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Контакти -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Контакти</h2>
+                <p>Ми завжди раді допомогти вам та відповісти на всі ваші запитання.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Наша адреса</h4>
+                            <p>вулиця Театральна, 2/21, м.Біла Церква</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Телефон</h4>
+                            <p>+38 (044) 123-45-67</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>info@medcenter.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Графік роботи</h4>
+                            <p>Пн-Пт: 8:00 - 20:00</p>
+                            <p>Сб: 9:00 - 18:00</p>
+                            <p>Нд: 9:00 - 15:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d541.4147428561981!2d30.118387192357854!3d49.79702648018005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d34219a2cd7221%3A0x32faf352d539bccb!2sTekhnoloho-Ekonomichnyy%20Koledzh%20Bilotserkivs%CA%B9koho%20Derzhavnoho%20Ahrarnoho%20Un-Tu!5e0!3m2!1sru!2sua!4v1763577057865!5m2!1sru!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>МедЦентр "Здоров'я"</h3>
+                    <p>Ми надаємо якісні медичні послуги з дбайливим ставленням до кожного пацієнта.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Швидкі посилання</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Головна</a></li>
+                        <li><a href="#services">Послуги</a></li>
+                        <li><a href="#doctors">Лікарі</a></li>
+                        <li><a href="#pricing">Ціни</a></li>
+                        <li><a href="#appointment">Запис</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Наші послуги</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Терапія</a></li>
+                        <li><a href="#">Кардіологія</a></li>
+                        <li><a href="#">Неврологія</a></li>
+                        <li><a href="#">Діагностика</a></li>
+                        <li><a href="#">Профілактика</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Підпишіться на розсилку</h3>
+                    <p>Отримуйте актуальні новини та пропозиції від нашого медичного центру.</p>
+                    <form class="subscribe-form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Ваш email" required>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Підписатися</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Медичний центр "Здоров'я". Всі права захищені.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальне вікно після запису -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="color: var(--secondary); margin-bottom: 15px;">Дякуємо за запис!</h2>
+            <p>Ваш запис успішно відправлений. Наш адміністратор зв'яжеться з вами протягом години для підтвердження.</p>
+            <button class="btn" style="margin-top: 20px;" id="closeModalBtn">Закрити</button>
+        </div>
+    </div>
+
+    <script>
+        // База даних послуг
+        const services = [
+            // Терапія (5 послуг)
+            {
+                id: 1,
+                name: "Консультація терапевта",
+                category: "therapy",
+                image: "https://aksimed.ua/wp-content/uploads/2022/01/terapevt.jpg.pagespeed.ce_.jguatjmuwp.jpg",
+                description: "Комплексне обстеження, діагностика та лікування захворювань внутрішніх органів.",
+                characteristics: ["Первинний огляд", "Аналіз симптомів", "Призначення лікування"],
+                price: 450,
+                available: true
+            },
+            {
+                id: 2,
+                name: "Загальний аналіз крові",
+                category: "therapy",
+                image: "https://aloeplus.com.ua/wp-content/uploads/%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7-%D0%BA%D1%80%D0%BE%D0%B2%D0%B8.jpg",
+                description: "Лабораторне дослідження крові для оцінки загального стану здоров'я.",
+                characteristics: ["Визначення рівня гемоглобіну", "Підрахунок лейкоцитів", "Швидкість осідання еритроцитів"],
+                price: 200,
+                available: true
+            },
+            {
+                id: 3,
+                name: "Біохімічний аналіз крові",
+                category: "therapy",
+                image: "https://www.telegraf.in.ua/uploads/posts/2024-11/1731934980_fichf.jpg",
+                description: "Комплексне дослідження біохімічних показників крові.",
+                characteristics: ["Глюкоза", "Білок", "Білірубін", "Ферменти"],
+                price: 350,
+                available: true
+            },
+            {
+                id: 4,
+                name: "УЗД органів черевної порожнини",
+                category: "therapy",
+                image: "https://urosvit.com/wp-content/uploads/2022/02/9_1024x683.jpg",
+                description: "Ультразвукове дослідження органів черевної порожнини.",
+                characteristics: ["Печінка", "Жовчний міхур", "Підшлункова залоза", "Селезінка"],
+                price: 600,
+                available: true
+            },
+            {
+                id: 5,
+                name: "Флюорографія",
+                category: "therapy",
+                image: "https://medbud.kiev.ua/wp-content/uploads/2025/09/img_8090-1024x702.jpg",
+                description: "Рентгенологічне дослідження органів грудної клітини.",
+                characteristics: ["Діагностика захворювань легень", "Виявлення туберкульозу", "Оцінка стану серця"],
+                price: 150,
+                available: true
+            },
+            
+            // Кардіологія (5 послуг)
+            {
+                id: 6,
+                name: "Консультація кардіолога",
+                category: "cardiology",
+                image: "https://homedoctor.com.ua/image/uploads/Kardiolog/3238432f3390edc2f7d66570c7bc13fc.jpg",
+                description: "Діагностика, лікування та профілактика захворювань серцево-судинної системи.",
+                characteristics: ["Огляд та консультація", "Аналіз симптомів", "Призначення лікування"],
+                price: 550,
+                available: true
+            },
+            {
+                id: 7,
+                name: "Електрокардіографія (ЕКГ)",
+                category: "cardiology",
+                image: "https://mrt-ct.com.ua/images/eeg/ecg-1.jpg",
+                description: "Реєстрація електричної активності серця.",
+                characteristics: ["Реєстрація серцевого ритму", "Виявлення аритмій", "Діагностика ішемії"],
+                price: 250,
+                available: true
+            },
+            {
+                id: 8,
+                name: "Ехокардіографія",
+                category: "cardiology",
+                image: "https://vitamedical.com.ua/wp-content/uploads/2024/08/108-optimized.jpg",
+                description: "Ультразвукове дослідження серця.",
+                characteristics: ["Візуалізація серця", "Оцінка функції клапанів", "Вимірювання розмірів камер"],
+                price: 800,
+                available: true
+            },
+            {
+                id: 9,
+                name: "Холтерівське моніторування",
+                category: "cardiology",
+                image: "https://santalen.com.ua/wp-content/uploads/1-2.jpg",
+                description: "Суточне моніторування ЕКГ.",
+                characteristics: ["24-годинний запис ЕКГ", "Виявлення прихованих аритмій", "Оцінка ефективності лікування"],
+                price: 900,
+                available: true
+            },
+            {
+                id: 10,
+                name: "Навантажувальні тести",
+                category: "cardiology",
+                image: "https://odrzn.sumy.ua/wp-content/uploads/medicina_sportiva-72.jpg",
+                description: "Діагностика серцево-судинної системи під час фізичного навантаження.",
+                characteristics: ["Велоергометрія", "Тредміл-тест", "Оцінка толерантності до навантаження"],
+                price: 700,
+                available: true
+            },
+            
+            // Неврологія (5 послуг)
+            {
+                id: 11,
+                name: "Консультація невролога",
+                category: "neurology",
+                image: "https://polomed.life/wp-content/uploads/2023/11/scale_1200-1.jpg",
+                description: "Лікування захворювань нервової системи: від головного болю до складних неврологічних розладів.",
+                characteristics: ["Неврологічний огляд", "Оцінка рефлексів", "Діагностика розладів"],
+                price: 500,
+                available: true
+            },
+            {
+                id: 12,
+                name: "Електроенцефалографія (ЕЕГ)",
+                category: "neurology",
+                image: "https://fox-house.com.ua/img/article/4/article_4_80007f222f88c4460eff8f919afa56d1.jpeg",
+                description: "Реєстрація електричної активності головного мозку.",
+                characteristics: ["Діагностика епілепсії", "Оцінка функцій мозку", "Виявлення патологій"],
+                price: 450,
+                available: true
+            },
+            {
+                id: 13,
+                name: "МРТ головного мозку",
+                category: "neurology",
+                image: "https://mri.in.ua/wp-content/uploads/2023/09/blog-11.webp",
+                description: "Магнітно-резонансна томографія головного мозку.",
+                characteristics: ["Високоякісні зображення", "Виявлення пухлин", "Діагностика інсультів"],
+                price: 1200,
+                available: true
+            },
+            {
+                id: 14,
+                name: "Електронейроміографія (ЕНМГ)",
+                category: "neurology",
+                image: "https://medikom.ua/upload/images/16521/elektronejromiografiya-enmg-95-61.jpg",
+                description: "Дослідження функціонального стану периферичних нервів та м'язів.",
+                characteristics: ["Оцінка провідності нервів", "Діагностика нейропатій", "Визначення уражень м'язів"],
+                price: 600,
+                available: true
+            },
+            {
+                id: 15,
+                name: "Допплерографія судин шиї",
+                category: "neurology",
+                image: "https://vitamedical.com.ua/wp-content/uploads/2024/09/175-optimized.jpg",
+                description: "Ультразвукове дослідження магістральних артерій шиї.",
+                characteristics: ["Оцінка кровотоку", "Виявлення стенозів", "Діагностика атеросклерозу"],
+                price: 500,
+                available: true
+            }
+        ];
+
+        // Функція для відображення послуг
+        function displayServices(servicesToDisplay) {
+            const container = document.getElementById('servicesContainer');
+            container.innerHTML = '';
+            
+            if (servicesToDisplay.length === 0) {
+                container.innerHTML = '<p style="text-align: center; grid-column: 1 / -1;">Послуги за вашим запитом не знайдені.</p>';
+                return;
+            }
+            
+            servicesToDisplay.forEach(service => {
+                const serviceCard = document.createElement('div');
+                serviceCard.className = 'service-card';
+                
+                const characteristicsHTML = service.characteristics.map(char => 
+                    `<li>${char}</li>`
+                ).join('');
+                
+                serviceCard.innerHTML = `
+                    <div class="service-img">
+                        <img src="${service.image}" alt="${service.name}">
+                    </div>
+                    <div class="service-content">
+                        <h3>${service.name}</h3>
+                        <p>${service.description}</p>
+                        <div style="margin-top: 15px;">
+                            <h4 style="font-size: 1rem; margin-bottom: 10px;">Характеристики:</h4>
+                            <ul style="padding-left: 20px; margin-bottom: 15px;">
+                                ${characteristicsHTML}
+                            </ul>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                            <span style="font-weight: bold; color: var(--primary); font-size: 1.2rem;">${service.price} грн</span>
+                            <span style="color: ${service.available ? 'var(--secondary)' : 'red'}">${service.available ? 'Доступно' : 'Недоступно'}</span>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(serviceCard);
+            });
+        }
+
+        // Функція для фільтрації послуг
+        function filterServices() {
+            const category = document.getElementById('categoryFilter').value;
+            const searchTerm = document.getElementById('searchService').value.toLowerCase();
+            const priceFilter = document.getElementById('priceFilter').value;
+            
+            let filteredServices = services;
+            
+            // Фільтрація за категорією
+            if (category !== 'all') {
+                filteredServices = filteredServices.filter(service => service.category === category);
+            }
+            
+            // Фільтрація за пошуковим запитом
+            if (searchTerm) {
+                filteredServices = filteredServices.filter(service => 
+                    service.name.toLowerCase().includes(searchTerm) || 
+                    service.description.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            // Фільтрація за ціною
+            if (priceFilter === 'expensive') {
+                // Знаходимо максимальну ціну
+                const maxPrice = Math.max(...filteredServices.map(service => service.price));
+                filteredServices = filteredServices.filter(service => service.price === maxPrice);
+            } else if (priceFilter === 'cheap') {
+                // Знаходимо мінімальну ціну
+                const minPrice = Math.min(...filteredServices.map(service => service.price));
+                filteredServices = filteredServices.filter(service => service.price === minPrice);
+            }
+            
+            // Показуємо результати пошуку
+            const resultsDiv = document.getElementById('searchResults');
+            const resultsCount = document.getElementById('resultsCount');
+            
+            if (category !== 'all' || searchTerm || priceFilter !== 'all') {
+                resultsDiv.style.display = 'block';
+                resultsCount.textContent = `Знайдено послуг: ${filteredServices.length}`;
+            } else {
+                resultsDiv.style.display = 'none';
+            }
+            
+            displayServices(filteredServices);
+        }
+
+        // Ініціалізація при завантаженні сторінки
+        document.addEventListener('DOMContentLoaded', function() {
+            // Відображаємо всі послуги при завантаженні
+            displayServices(services);
+            
+            // Додаємо обробники подій для фільтрів
+            document.getElementById('categoryFilter').addEventListener('change', filterServices);
+            document.getElementById('searchService').addEventListener('input', filterServices);
+            document.getElementById('priceFilter').addEventListener('change', filterServices);
+            document.getElementById('resetFilters').addEventListener('click', function() {
+                document.getElementById('categoryFilter').value = 'all';
+                document.getElementById('searchService').value = '';
+                document.getElementById('priceFilter').value = 'all';
+                document.getElementById('searchResults').style.display = 'none';
+                displayServices(services);
+            });
+        });
+
+        // Мобільне меню
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').style.display = 
+                document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Обробка форми запису
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Отримуємо дані з форми
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const doctor = document.getElementById('doctor').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            
+            // Тут зазвичай буде відправка даних на сервер
+            // Але для демонстрації просто показуємо модальне вікно
+            
+            // Показуємо модальне вікно
+            document.getElementById('successModal').style.display = 'flex';
+            
+            // Очищаємо форму
+            document.getElementById('appointmentForm').reset();
+        });
+
+        // Закриття модального вікна
+        document.querySelector('.close-modal').addEventListener('click', function() {
+            document.getElementById('successModal').style.display = 'none';
+        });
+        
+        document.getElementById('closeModalBtn').addEventListener('click', function() {
+            document.getElementById('successModal').style.display = 'none';
+        });
+
+        // Закриття модального вікна при кліку поза ним
+        window.addEventListener('click', function(e) {
+            if (e.target === document.getElementById('successModal')) {
+                document.getElementById('successModal').style.display = 'none';
+            }
+        });
+
+        // Плавна прокрутка до розділів
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Закриваємо мобільне меню після кліку
+                    if (window.innerWidth <= 992) {
+                        document.querySelector('.nav-links').style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Встановлюємо мінімальну дату для запису (сьогодні)
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').setAttribute('min', today);
+    </script>
+</body>
+</html>
